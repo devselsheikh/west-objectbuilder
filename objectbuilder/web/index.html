@@ -4,29 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Object Builder - West</title>
+  <style>html,body{margin:0;width:100%;height:100%;background:transparent!important;overflow:hidden}#app{display:none}</style>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="app" class="hidden">
-    <header>
-      <h1>Object Builder <span>by West</span></h1>
-      <button id="closeBtn">Close</button>
-    </header>
-    <section class="panel">
-      <h2>Spawn List</h2>
-      <select id="modelSelect"></select>
-      <button id="previewBtn">Start Preview</button>
-      <button id="snapBtn">Snap: ON</button>
-      <div class="axis-row">
-        <button data-axis="all">ALL</button><button data-axis="x">X</button><button data-axis="y">Y</button><button data-axis="z">Z</button>
+  <div id="app" class="hidden" aria-hidden="true">
+    <header><h1>Object Builder <span>by West</span></h1><button id="closeBtn">Close</button></header>
+    <section class="grid">
+      <div class="panel">
+        <h2>Spawn</h2>
+        <input id="mapName" placeholder="map name" />
+        <button id="loadMapBtn">Load Map</button>
+        <select id="modelSelect"></select>
+        <button id="previewBtn">Start Preview</button>
+        <button id="snapBtn">Snap: ON</button>
+        <div class="axis-row"><button data-axis="all">ALL</button><button data-axis="x">X</button><button data-axis="y">Y</button><button data-axis="z">Z</button></div>
       </div>
-      <p>Enter: Place | Q/E: Rotate | Arrows: Move | PgUp/PgDn: Height</p>
+      <div class="panel">
+        <h2>Objects</h2>
+        <div id="objectList" class="list"></div>
+      </div>
+      <div class="panel">
+        <h2>Inspector</h2>
+        <input id="pos" placeholder='{"x":0,"y":0,"z":0}' />
+        <input id="rot" placeholder='{"x":0,"y":0,"z":0}' />
+        <button id="applyBtn">Apply Transform</button>
+        <button id="dupBtn">Duplicate</button>
+        <button id="freezeBtn">Toggle Freeze</button>
+        <button id="delBtn">Delete</button>
+        <button id="exportBtn">Export</button>
+        <textarea id="exportOutput" placeholder="Export / Import JSON"></textarea>
+        <button id="importBtn">Import</button>
+      </div>
     </section>
-    <section class="panel">
-      <h2>Inspector</h2>
-      <button id="exportBtn">Export Map</button>
-      <textarea id="exportOutput" placeholder="Export JSON appears here"></textarea>
-    </section>
+    <p>Enter place, Q/E rotate, arrows move, PgUp/PgDn height, ESC close. No external popups.</p>
   </div>
   <script src="app.js"></script>
 </body>

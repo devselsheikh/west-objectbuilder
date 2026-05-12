@@ -30,3 +30,8 @@ Config.Validation = {
 
 Config.DefaultMapName = 'default'
 Config.MapFolder = 'maps'
+
+Config.Catalog = {
+    allowExtended = true,
+    allowUnsafeCatalog = false
+}
