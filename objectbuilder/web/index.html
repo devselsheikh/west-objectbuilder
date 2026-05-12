@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Object Builder - West</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="hidden">
+    <header>
+      <h1>Object Builder <span>by West</span></h1>
+      <button id="closeBtn">Close</button>
+    </header>
+    <section class="panel">
+      <h2>Spawn List</h2>
+      <select id="modelSelect"></select>
+      <button id="previewBtn">Start Preview</button>
+      <button id="snapBtn">Snap: ON</button>
+      <div class="axis-row">
+        <button data-axis="all">ALL</button><button data-axis="x">X</button><button data-axis="y">Y</button><button data-axis="z">Z</button>
+      </div>
+      <p>Enter: Place | Q/E: Rotate | Arrows: Move | PgUp/PgDn: Height</p>
+    </section>
+    <section class="panel">
+      <h2>Inspector</h2>
+      <button id="exportBtn">Export Map</button>
+      <textarea id="exportOutput" placeholder="Export JSON appears here"></textarea>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
