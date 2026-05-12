@@ -1,5 +1,4 @@
 local state = {
-    open = false,
     editing = false,
     selectedModel = 'prop_barrier_work05',
     previewEntity = nil,
@@ -160,34 +159,7 @@ RegisterNUICallback('exportMap', function(_, cb)
     cb({ ok = true })
 end)
 
-RegisterNUICallback('close', function(_, cb)
-    state.open = false
-    state.editing = false
-    cleanupPreview()
-    SetNuiFocus(false, false)
-    SendNUIMessage({ type = 'close' })
-    cb({ ok = true })
-end)
-
-AddEventHandler('onResourceStart', function(resName)
-    if resName ~= GetCurrentResourceName() then return end
-    state.open = false
-    state.editing = false
-    cleanupPreview()
-    SetNuiFocus(false, false)
-    SendNUIMessage({ type = 'close' })
-end)
-
-AddEventHandler('onResourceStop', function(resName)
-    if resName ~= GetCurrentResourceName() then return end
-    state.open = false
-    state.editing = false
-    cleanupPreview()
-    SetNuiFocus(false, false)
-end)
-
 RegisterCommand('objectbuilder', function()
-    state.open = true
     SetNuiFocus(true, true)
     SendNUIMessage({
         type = 'open',

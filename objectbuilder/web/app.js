@@ -31,10 +31,6 @@ window.addEventListener('message', (event) => {
   if (msg.type === 'export') {
     exportOutput.value = msg.payload || '';
   }
-
-  if (msg.type === 'close') {
-    app.classList.add('hidden');
-  }
 });
 
 previewBtn.addEventListener('click', () => {
@@ -44,7 +40,8 @@ previewBtn.addEventListener('click', () => {
 
 closeBtn.addEventListener('click', () => {
   app.classList.add('hidden');
-  post('close');
+  post('toggleEditor', { enabled: false });
+  fetch(`https://${GetParentResourceName()}/__cfx_nui:close`, { method: 'POST', body: '{}' });
 });
 
 snapBtn.addEventListener('click', () => {
